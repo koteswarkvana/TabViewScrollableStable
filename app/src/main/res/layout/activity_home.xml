@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".HomeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.1"
+        android:background="?attr/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <com.koti.apple.tabviewscrollablestable.MyViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/tab_layout_line"
+        android:layout_below="@id/toolbar"
+        android:layout_weight="0.795"
+        tools:context=".MainActivity" />
+
+    <View
+        android:id="@+id/tab_layout_line"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/tab_layout"
+        android:layout_weight="0.005"
+        android:background="@android:color/holo_red_light" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="0.1"
+        android:background="@android:color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:padding="0.75mm"
+        android:theme="@style/ThemeOverlay.AppCompat.Dialog.Alert">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:icon="@drawable/android_p"
+            android:text="First tab" />
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Second tab" />
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Third tab" />
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Fourth tab" />
+    </android.support.design.widget.TabLayout>
+
+    <!--app:tabTextAppearance="@style/AppTabTextAppearance"-->
+    <!--style="@style/AppTabLayout"-->
+    <!--android:theme="@style/ThemeOverlay.AppCompat.Light"-->
+
+</LinearLayout>
