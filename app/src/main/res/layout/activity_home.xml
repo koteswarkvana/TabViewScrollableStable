@@ -1,78 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context=".HomeActivity">
+    tools:context=".MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_alignParentTop="true"
         android:layout_weight="0.1"
-        android:background="?attr/colorPrimary"
-        android:elevation="6dp"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-    <com.koti.apple.tabviewscrollablestable.MyViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_above="@+id/tab_layout_line"
-        android:layout_below="@id/toolbar"
-        android:layout_weight="0.795"
-        tools:context=".MainActivity" />
-
-    <View
-        android:id="@+id/tab_layout_line"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_above="@+id/tab_layout"
-        android:layout_weight="0.005"
-        android:background="@android:color/holo_red_light" />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_alignParentBottom="true"
-        android:layout_weight="0.1"
-        android:background="@android:color/white"
-        android:minHeight="?attr/actionBarSize"
-        android:padding="0.75mm"
+        android:paddingTop="8dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dialog.Alert">
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:icon="@drawable/android_p"
-            android:text="First tab" />
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:text="Second tab" />
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:text="Third tab" />
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:text="Fourth tab" />
-    </android.support.design.widget.TabLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/app_name">
 
-    <!--app:tabTextAppearance="@style/AppTabTextAppearance"-->
-    <!--style="@style/AppTabLayout"-->
-    <!--android:theme="@style/ThemeOverlay.AppCompat.Light"-->
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:isScrollContainer="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_gravity="bottom" >
+
+        </android.support.design.widget.TabLayout>
+    </android.support.v4.view.ViewPager>
+
+    <!--TODO:- try fix the tab mode constant-->
+    <!--
+            app:tabMode="fixed"
+            android:overScrollMode="never"-->
 
 </LinearLayout>
+
